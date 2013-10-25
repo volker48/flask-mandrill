@@ -42,8 +42,7 @@ setup(
     author='Marcus McCurdy',
     author_email='marcus.mccurdy@gmail.com',
     description='Adds Mandrill support to Flask applications',
-    long_description=__doc__ + '\n\n' +
-                     open('HISTORY.rst').read(),
+    long_description=__doc__,
     py_modules=['flask_mandrill'],
     zip_safe=False,
     platforms='any',
