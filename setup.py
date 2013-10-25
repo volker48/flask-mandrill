@@ -1,6 +1,6 @@
 """
 Flask-Mandrill
---------------
+==============
 
 A Flask Extension to remove some of the boiler plate encountered when
 sending emails with `Mandrill <http://www.mandrill.com/>`_
@@ -9,6 +9,7 @@ Installation
 ````````````
 
 .. code:: bash
+
     $ pip install flask-mandrill
 
 
