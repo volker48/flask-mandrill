@@ -35,6 +35,8 @@ class Mandrill(object):
             'key': kwargs.pop('key', self.api_key),
             'message': kwargs,
         }
+        data['message'].setdefault('from_email',
+                                  self.app.config['MANDRILL_DEFAULT_FROM'])
         response = requests.post(self.messages_endpoint,
                                  data=json.dumps(data),
                                  headers={'Content-Type':'application/json'})
