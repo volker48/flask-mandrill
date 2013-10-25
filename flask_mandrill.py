@@ -1,4 +1,5 @@
 import requests
+import json
 
 class Mandrill(object):
     app = None
@@ -14,10 +15,31 @@ class Mandrill(object):
         self.app = app
 
     def send_email(self, **kwargs):
+        """
+        Sends an email using Mandrill's API. Returns a
+        Requests :class:`Response` object.
+
+        At a minimum kwargs must contain the keys to, from_email, and text.
+
+        Everything passed as kwargs except for the keywords 'key', 'async',
+        and 'ip_pool' will be sent as key-value pairs in the message object.
+
+        Reference https://mandrillapp.com/api/docs/messages.JSON.html#method=send
+        for all the available options.
+        """
         if not self.api_key:
             raise ValueError('No Mandrill API key has been configured')
-        kwargs.setdefault('key', self.api_key)
-        requests.post(self.messages_endpoint, data=kwargs)
+        data = {
+            'async': kwargs.pop('async', False),
+            'ip_pool': kwargs.pop('ip_pool', ''),
+            'key': kwargs.pop('key', self.api_key),
+            'message': kwargs,
+        }
+        response = requests.post(self.messages_endpoint,
+                                 data=json.dumps(data),
+                                 headers={'Content-Type':'application/json'})
+        response.raise_for_status()
+        return response
 
     @property
     def messages_endpoint(self):
