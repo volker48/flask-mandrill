@@ -19,7 +19,7 @@ Usage
 .. code:: python
 
         from flask import Flask
-        from from flask.ext.mandrill import Mandrill
+        from flask.ext.mandrill import Mandrill
 
         app = Flask(__name__)
         app.config['MANDRILL_API_KEY'] = 'your api key'
