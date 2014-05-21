@@ -16,6 +16,7 @@ Usage
     
     app = Flask(__name__)
     app.config['MANDRILL_API_KEY'] = 'your api key'
+    app.config['MANDRILL_DEFAULT_FROM'] = 'admin@yourdomain.com'
     mandrill = Mandrill(app)
     mandrill.send_email(
         from_email='someone@yourdomain.com',
