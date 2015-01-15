@@ -4,6 +4,11 @@ Release History
 ---------------
 
 
+0.2 (2015-01-15)
+++++++++++++++++
+
+- Adds support for sending template emails.
+
 0.1.1 (2013-10-25)
 ++++++++++++++++++
 
