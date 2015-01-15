@@ -25,4 +25,6 @@ Usage
         text='Hello World'
     )
     
+    To use a templated e-mail, specify template_name='some template name as an argument.
+    
 For additional information about send_email parameters: https://mandrillapp.com/api/docs/messages.html
