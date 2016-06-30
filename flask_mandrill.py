@@ -50,7 +50,7 @@ class Mandrill(object):
                 self.app.config.get('MANDRILL_DEFAULT_FROM', None)
             )
 
-        if not data['message'].get('from_email', None):
+        if endpoint != self.templates_endpoint and not data['message'].get('from_email', None):
             raise ValueError(
                 'No from email was specified and no default was configured')
 
